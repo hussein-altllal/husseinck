@@ -1,0 +1,685 @@
+
+let price= document.getElementById("price")
+let texes=document.getElementById('texes')
+let ads =document.getElementById('ads')
+let diccunt=document.getElementById('diccunt')
+let totl=document.getElementById('totl')
+let cunt=document.getElementById('cunt')
+let catgray=document.getElementById('catgray')
+let sumant=document.getElementById('sumant')
+
+
+
+function gettotal(){
+if(price.value != ""){
+  let resolt=( +price.value + +texes.value + +ads.value )- +diccunt.value
+  totl.innerHTML=resolt
+  totl.style.background= "#040"
+}
+else{
+  totl.innerHTML=""
+  totl.style.background='red'
+}
+
+
+
+}
+
+
+
+let datapro=[];
+if(localStorage.prodact != null){
+datapro=JSON.parse(localStorage.prodact);
+
+}
+else{
+  let datapro=[];
+
+}
+
+
+
+
+
+
+
+sumant.onclick=function(){
+  let newpro={
+    title: title.value,
+    price:price.value,
+    texes:texes.value,
+    ads:ads.value,
+    diccunt:diccunt.value,
+    totl:totl.innerHTML,
+    cunt:cunt.value,
+    catgray:catgray.value
+
+  }
+  datapro.push(newpro)
+  
+  localStorage.setItem('prodact', JSON.stringify(datapro))
+
+
+  clerdata()
+  showdata()
+}
+
+
+
+
+
+function clerdata(){
+title.value='';
+price.value='';
+ads.value='';
+texes.value='';
+diccunt.value='';
+totl.innerHTML='';
+cunt.value='';
+catgray.value='';
+}
+
+
+
+
+
+
+
+function showdata(){
+
+  let table='';
+
+  for (let i = 0; i < datapro.length; i++){
+  table  +=`
+  <tr>
+  <td>${i} </td>
+  <td> ${datapro[i].title}   </td>
+  <td>${datapro[i].price} </td>
+  <td>${datapro[i].texes} </td>
+  <td>${datapro[i].ads} </td>
+  <td>${datapro[i].diccunt} </td>
+  <td>${datapro[i].totl} </td>
+  <td>${datapro[i].catgray} </td>
+  <td><button id="update">update</button></td>
+  <td><button   onclick=detedata(${i})   id="delete">delete</button></td>
+  
+  </tr>
+  `
+}
+
+document.getElementById('tbody').innerHTML=table
+let vbndelet=document.getElementById('deletAll')
+if(datapro.length > 0){
+vbndelet.innerHTML=`
+<td><button > delete all </button></td>
+  
+
+`
+
+}
+}
+showdata()
+
+
+
+function detedata(i){
+
+datapro.splice(i,1)
+localStorage.prodact= JSON.stringify(datapro);
+showdata()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let titel=document.querySelector('.tital')
+// let ul=document.querySelector('ul')
+// let relod=document.querySelector('.relod')
+
+// window.onload=function(){
+// if (window.navigator.onLine) {
+//   oneline()
+// }
+// else{
+//   offline()
+// }
+// }
+
+// window.addEventListener('online',function(){
+//   oneline()
+// })
+
+// window.addEventListener('offline',function(){
+//   offline()
+// })
+
+
+
+
+// function oneline() {
+//   titel.innerHTML='oneline'
+//   titel.style.color='green'
+//   ul.classList.add('hide')
+//   relod.classList.add('hide')
+// }
+
+ 
+
+
+
+// function offline() {
+//   titel.innerHTML='offline'
+//   titel.style.color='#666'
+//   ul.classList.remove('hide')
+//   relod.classList.remove('hide')
+// }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for(let i=0;i<yars.length;i++){
+//  age.push(2023-yars[i])
+// }
+// console.log(age)
+
+
+
+
+
+
+
+
+
+// const huss=['hussein','ali','alhussein']
+
+// const x=[]
+// for(let i=0;i<huss.length;i++){
+//   x.push(`"hello"  ${huss[i]}`)
+// }
+// console.log(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const moon=(barth)=>{
+
+// return 2023-barth
+
+// }
+// const arry=[1999,1998,1997]
+
+// console.log(moon(arry[2]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function days(age)
+// {
+// let result=age * 365
+// return result
+
+
+// }
+// let day=days(25);
+
+// function mood(age) 
+// {
+// let result= age * 24 
+// return result;
+
+// }
+// let x= mood(day)
+// console.log(x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function day(age)
+// {
+// let result=age * 365
+// console.log(result)
+
+
+// }
+// day(22);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function huss(sall,sra,mak){
+//  let bro=sall+sra
+//  let mss=bro+mak
+//  console.log(mss)
+// }
+// huss(200,100,300);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let i=0;
+// do{
+
+//   document.write('<h1>hello<h1>')
+// i++;
+
+// } while (false)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let i=0
+// while(i<3){
+
+  
+//   document.write('<h1>hello<h1>')
+//   i++;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let name=['ali','huss','yussef','mazen']
+// for(let h=0;h<name.length;h++){
+  // if( name[h]=='mazen')
+  // continue;
+  // console.log(name[h])
+// }
+
+
+ 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// toUppercase يحول حروف كبتل
+// prompt فتح نافذة وندو 
+// join تعرض الكلمة بدون علامه تنقيط ترجعه نص
+// concat دمج
+//  الارقام اداة ترتيب صحيح sort
+// shift,unshift,push,pop,splice,slice
+// بحث indexOF,lastindexof
+// true,false includes
+// reverse  تعكس الاعداد
+// trim اداة توخر الفواصل
+// if (){
+
+// }
+// else ()
+// {
+
+// }
+
+// switch( الاداة)
+// {
+// case()
+// document
+// : لا تنسه هاي العلامه
+
+// }
+// من ضيف شي حتمال ثاني بل سويج تكتب بريك
+// break
+// وتكتب case وتكمل كود 
+// default في حال عدم تحقق اي شرط في سويج
+
+// العدات بل for(;;){
+// console.log()
+// }
+// return اداة بل فوكشن تغنيك مرات عن كونيل
